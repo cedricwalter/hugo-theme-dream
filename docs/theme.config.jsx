@@ -1,5 +1,5 @@
 export default {
-  logo: <span style={{ fontSize: '1.125rem', fontWeight: 600 }}>🌱 Hugo Theme Dream</span>,
+  logo: <span style={{ fontSize: '1.125rem', fontWeight: 600 }}>🌱 Hugo Theme Dream,
   project: {
     link: 'https://github.com/g1eny0ung/hugo-theme-dream',
   },
@@ -24,7 +24,7 @@ export default {
           🌱 Hugo Theme Dream
         </a>
         .
-      </span>
+
     ),
   },
 }

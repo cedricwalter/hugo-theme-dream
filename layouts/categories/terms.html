@@ -16,12 +16,12 @@
         {{- else -}}
         {{ T "category" (len .Data.Terms) }}
         {{- end -}}
-      </span>
+
     </h2>
 
     {{ range .Data.Terms.Alphabetical }}
     <h3 class="ui header">
-      <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>&nbsp;{{- T "article" .Count -}}
+      <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> {{- T "article" .Count -}}
     </h3>
     <ul>
       {{ range .Pages }}

@@ -219,14 +219,14 @@ View <https://valine.js.org/en/quickstart> to get more details.
 >
 > Example: <https://github.com/g1eny0ung/blog/blob/master/data/socials.toml>.
 
-`email = "g1enyy0ung@gmail.com"`<br />
-`twitter = "g1eny0ung"`<br />
-`facebook = "g1eny0ung"`<br />
-`instagram = "g1enyy0ung"`<br />
-`# mastodon = ""`<br />
-`linkedin = "钺杨g1eny0ung"`<br />
-`github = "g1eny0ung"`<br />
-`stackoverflow = "5676489/g1eny0ung"`<br />
+`email = "g1enyy0ung@gmail.com"`
+`twitter = "g1eny0ung"`
+`facebook = "g1eny0ung"`
+`instagram = "g1enyy0ung"`
+`# mastodon = ""`
+`linkedin = "钺杨g1eny0ung"`
+`github = "g1eny0ung"`
+`stackoverflow = "5676489/g1eny0ung"`
 `codepen = "g1eny0ung"`
 
 All of these social links will be showed on about page `layouts/partials/back.html`.

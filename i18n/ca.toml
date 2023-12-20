@@ -26,7 +26,7 @@ other = "{{ .Count }} categories"
 
 [article]
 one = "1 article"
-other = "{{ .Count }} articles"
+other = " {{ .Count }} articles"
 
 [socialLinks]
 other = "Enllaços de xarxes socials"

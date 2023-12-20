@@ -20,7 +20,7 @@
     <div class="meta">
       <p class="date">
         {{ if .Site.Params.Experimental.jsDate }}
-          <span data-format="luxon">{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</span>
+          <span data-format="luxon">{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}
         {{ else }}
           {{- if eq .Site.Language.Lang "zh" -}}
             {{ index .Site.Data.zh.Weekday (printf "%d" .Date.Weekday) }}，{{ index .Site.Data.zh.Month (printf "%d" .Date.Month) }} {{ .Date.Day }} 日，{{ .Date.Year }} 年
@@ -46,7 +46,7 @@
       {{- if isset .Params "avatar" -}}
       <img class="ui avatar image" src="{{ .Params.avatar }}" alt="avatar" />
       {{- else -}}
-      @&nbsp;
+      @
       {{- end -}}
 
       {{- if isset .Params "author" -}}

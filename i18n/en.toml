@@ -26,7 +26,7 @@ other = "{{ .Count }} categories"
 
 [article]
 one = "1 article"
-other = "{{ .Count }} articles"
+other = " {{ .Count }} articles"
 
 [group]
 one = "1 group"

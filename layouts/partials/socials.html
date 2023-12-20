@@ -59,6 +59,18 @@
   </a>
   {{ end }}
 
+  {{ if .Site.Params.youtube }}
+  <a class="item" href="https://www.youtube.com/{{ .Site.Params.youtube }}" target="_blank">
+    <i class="{{ .IconSize }} youtube icon" title="Youtube"></i>
+  </a>
+  {{ end }}
+
+  {{ if .Site.Params.flickr }}
+  <a class="item" href="https://www.flickr.com/{{ .Site.Params.flickr }}" target="_blank">
+    <i class="{{ .IconSize }} flickr icon" title="Flickr"></i>
+  </a>
+  {{ end }}
+
   {{ if (fileExists "data/socials.toml") }}
   {{ $iconSize := .IconSize }}
   {{ range .Site.Data.socials.socials }}

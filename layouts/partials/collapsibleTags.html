@@ -1,7 +1,7 @@
 <details>
   <summary class="ui header">
     <a href="{{ .ctx.Page.RelPermalink }}">{{ .ctx.Page.Title }}</a>
-    {{- if not .collapseBySummary -}}&nbsp;{{ T "article" .ctx.Count }}{{- end -}}
+    {{- if not .collapseBySummary -}} {{ T "article" .ctx.Count }}{{- end -}}
   </summary>
   {{- if .collapseBySummary -}}
 
