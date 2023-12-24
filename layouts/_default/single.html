@@ -132,8 +132,7 @@
                   <div class="ui relaxed grid dream-grid">
                       {{ $related := .Site.RegularPages.Related . | first 4 }}
                       {{ range $related }}
-                      <div
-                          class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
+                      <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
                           {{ .Render "summary-small" }}
                       </div>
                       {{ end }}
@@ -162,7 +161,7 @@
     </article>
     {{ end }}
 
-    <article class="ui segment utterances-comments" data-html2canvas-ignore></article>
+    <article class="ui segment utterances-comments" data-html2canvas-ignore>
       <script src="https://giscus.app/client.js"
         data-repo="cedricwalter/cedricwalter.github.io"
         data-repo-id="R_kgDOHeZOPQ"
