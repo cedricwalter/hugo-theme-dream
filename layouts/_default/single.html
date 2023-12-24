@@ -71,6 +71,7 @@
                 {{ end }}
 
               | {{ .ReadingTime }}{{ i18n "minuteRead" .ReadingTime }}
+              | {{ .WordCount }} Words
 
               {{ if ne .Params.nolastmod true }}
               | {{ i18n "updateAt" }}
@@ -96,6 +97,17 @@
             {{ partial "share.html" . }}
             {{ end }}
 
+            {{ $taxonomy := "tags" }}
+            {{ with .GetTerms $taxonomy }}
+              <p>
+                {{ (site.GetPage $taxonomy).LinkTitle }}:
+                {{ range $k, $_ := . -}}
+                  {{ if $k }}, {{ end }}
+                  <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                {{- end }}
+              </p>
+            {{ end }}
+
         </h1>
       </header>
 
@@ -105,7 +117,30 @@
         {{ end }}
 
         {{ .Content | emojify }}
+
+         <!-- {{ partial "related.html" . }} -->
       </article>
+    </section>
+
+    <section class="section">
+      <div class="columns is-centered">
+          <div class="column max-800px">
+              <div class="content">
+                  <h2>Related content</h2>
+              </div>
+              <div>
+                  <div class="ui relaxed grid dream-grid">
+                      {{ $related := .Site.RegularPages.Related . | first 4 }}
+                      {{ range $related }}
+                      <div
+                          class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
+                          {{ .Render "summary-small" }}
+                      </div>
+                      {{ end }}
+                  </div>
+              </div>
+          </div>
+      </div>
     </section>
 
     {{ if .Site.DisqusShortname }}
@@ -119,13 +154,31 @@
       <script
         src="https://utteranc.es/client.js"
         repo="{{ .Site.Params.utterancesRepo }}"
-        issue-term="og:title"
-        theme="github-light"
+        issue-term="{{ .Site.Params.utterancesMapping }}"
+        theme="{{ .Site.Params.utterancesStyle }}"
         crossorigin="anonymous"
         async>
       </script>
     </article>
     {{ end }}
+
+    <article class="ui segment utterances-comments" data-html2canvas-ignore></article>
+      <script src="https://giscus.app/client.js"
+        data-repo="cedricwalter/cedricwalter.github.io"
+        data-repo-id="R_kgDOHeZOPQ"
+        data-category="General"
+        data-category-id="DIC_kwDOHeZOPc4Cb7-s"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+    </script>
+  </article>
 
     {{ if .Site.Params.valine }}
     <article class="ui segment" data-html2canvas-ignore>
@@ -164,6 +217,8 @@
 
 {{ partial "highlight.html" . }}
 {{ end }}
+
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js" integrity="sha256-uacRffSSMP9qpvNWhVmYLykBv9YKMA1d/VSIN1AmfyQ=" crossorigin="anonymous"></script>
 <script src="{{ "/js/post.js" | relURL }}" defer></script>

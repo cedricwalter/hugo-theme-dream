@@ -69,7 +69,7 @@
     {{ else }}
     {{ $rest = $tags }}
     {{ end }}
-          <div class="dream-tags"{{ if $maxTags }} style="margin-left: 1.5rem;"{{ end}}>
+           <div class="dream-tags"{{ if $maxTags }} style="margin-left: 1.5rem;"{{ end}}>
           {{ range $tag := $rest }}
           {{ $title := index $tag "title" }}
           {{ $link := index $tag "link" }}
