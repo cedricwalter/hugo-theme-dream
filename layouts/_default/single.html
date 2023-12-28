@@ -113,7 +113,14 @@
 
       <article class="main">
         {{ if and .Params.Cover .Site.Params.showSummaryCoverInPost }}
-        <img class="cover" src="{{ .Params.Cover }}" />
+            {{ $image := .Params.Cover }}
+            {{ $webp := $image | relURL | replaceRE `(\.\w+)$` ".webp" | absURL }}
+            <figure>
+              <picture>
+                <source type="image/webp" srcset="{{ $webp }}">
+                <img class="cover" loading="lazy" src="{{ $image | absURL }}">
+              </picture>
+            </figure>
         {{ end }}
 
         {{ .Content | emojify }}
