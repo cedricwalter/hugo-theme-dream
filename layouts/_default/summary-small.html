@@ -11,9 +11,9 @@
           <img class="cover" loading="lazy" src="{{ $image | absURL }}" alt="{{ .Title }}">
         </picture>
       </figure>
-
     {{ else }}
-    <img src="{{ "/img/" | relURL }}default{{ index (shuffle (seq 1 4)) 0 }}.jpg" alt="{{ .Title }}" />
+      {{- warnf "no such cover in: %s" .Permalink -}}
+      <img src="{{ "/img/" | relURL }}default{{ index (shuffle (seq 1 4)) 0 }}.jpg" alt="{{ .Title }}" />
     {{ end }}
   </a>
   {{ end }}
