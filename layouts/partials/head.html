@@ -2,6 +2,14 @@
 <link href="{{ .Site.Params.favicon }}" rel="shortcut icon" type="image/x-icon" />
 {{ end }}
 
+<!-- The dns-prefetch resource functionality is intended to look-up domain names
+   before the browser would otherwise know that they’d be needed in the near future.
+   It’s a quick way to speed up the loading of external page resources.
+   You only need to set this up for resources that aren’t hosted on your own domain.
+-->
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net" rel="preconnect" crossorigin>
+
 {{ if eq .Type "posts" }}
 <!-- Page Author & Description -->
 <meta name="author" content="{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}" />
