@@ -5,7 +5,7 @@ other = "Home"
 other = "Back to home"
 
 [flip]
-other = "Flip it!"
+other = "About, contact me, find me on the web"
 
 [archives]
 other = "Archives"
@@ -56,3 +56,19 @@ other = "Save as image"
 
 [search]
 other = "Search"
+
+[[root]]
+id = "warning"
+translation = "Warning"
+
+[[root]]
+id = "note"
+translation = "Note"
+
+[[root]]
+id = "info"
+translation = "Info"
+
+[[root]]
+id = "tip"
+translation = "Tip"
