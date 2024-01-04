@@ -19,17 +19,17 @@
 {{ define "main" }}
 <div class="ui relaxed centered grid dream-grid dream-grid-single"{{ if .Site.Params.reversePostAndAside }}style="flex-direction: row-reverse;"{{ end }}>
   <!-- len <nav id="TableOfContents"></nav> == 32 -->
-  {{ $showTOC := ge (len .TableOfContents) 33 }}
+  <!-- {{ $showTOC := ge (len .TableOfContents) 33 }} -->
   {{ $shareInAside := .Site.Params.shareInAside }}
   {{ $showAside := or $showTOC $shareInAside }}
 
   {{ if $showAside }}
   <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
-    {{ if $showTOC }}
+    <!-- {{ if $showTOC }} -->
     <div class="ui segment toc">
-      {{ .TableOfContents }}
+          <!-- {{ .TableOfContents }} -->
     </div>
-    {{ end }}
+    <!-- {{ end }} -->
 
     {{ if $shareInAside }}
     {{ partial "share1.html" . }}
@@ -169,7 +169,7 @@
     {{ end }}
 
     <article class="ui segment utterances-comments" data-html2canvas-ignore>
-      <script src="https://giscus.app/client.js"
+      <!-- <script src="https://giscus.app/client.js"
         data-repo="cedricwalter/cedricwalter.github.io"
         data-repo-id="R_kgDOHeZOPQ"
         data-category="General"
@@ -183,7 +183,7 @@
         data-lang="en"
         crossorigin="anonymous"
         async>
-    </script>
+    </script> -->
   </article>
 
     {{ if .Site.Params.valine }}
@@ -207,18 +207,18 @@
 {{ define "js" }}
 
 {{ if .Site.Params.Experimental.jsDate }}
-{{ partial "luxon.html" . }}
+  {{ partial "luxon.html" . }}
 {{ end }}
 
 <script src="{{ "/js/scrollToTop.js" | relURL }}"></script>
 
 {{ if .Site.Params.highlightjs }}
-<script src="{{ if .Site.Params.highlightjsCDN }}{{ .Site.Params.highlightjsCDN }}{{ else }}{{ "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js" }}{{ end}}"></script>
+  <script src="{{ if .Site.Params.highlightjsCDN }}{{ .Site.Params.highlightjsCDN }}{{ else }}{{ "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js" }}{{ end}}"></script>
 
-{{ if .Site.Params.highlightjsExtraLanguages }}
-{{ range .Site.Params.highlightjsExtraLanguages }}
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/{{ . }}.min.js"></script>
-{{ end }}
+  {{ if .Site.Params.highlightjsExtraLanguages }}
+    {{ range .Site.Params.highlightjsExtraLanguages }}
+      <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/{{ . }}.min.js"></script>
+  {{ end }}
 {{ end }}
 
 {{ partial "highlight.html" . }}
