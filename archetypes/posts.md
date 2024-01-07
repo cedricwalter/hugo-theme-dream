@@ -12,6 +12,4 @@ tags:
 
 Cut out summary from your post content here.
 
-
-
 The remaining content of your post.
