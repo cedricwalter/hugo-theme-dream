@@ -99,13 +99,12 @@
 
             {{ $taxonomy := "tags" }}
             {{ with .GetTerms $taxonomy }}
-              <p>
+              <div class="dream-tags" style="margin-top: 1.5rem;">
                 {{ (site.GetPage $taxonomy).LinkTitle }}:
                 {{ range $k, $_ := . -}}
-                  {{ if $k }}, {{ end }}
-                  <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                  <a class="ui label" style="margin-bottom: .5rem;" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                 {{- end }}
-              </p>
+              </div>
             {{ end }}
 
         </h1>

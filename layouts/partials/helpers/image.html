@@ -31,6 +31,7 @@
     {{- end -}}
   {{- end -}}
 {{- else -}}
+  {{- warnf "found images to resize at: %s" .filename -}}
   {{- $link = .filename -}}
 {{- end -}}
 {{- $params := $url.Query -}}
