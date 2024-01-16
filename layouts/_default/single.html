@@ -113,12 +113,20 @@
 
       <article class="main">
         {{ if and .Params.Cover .Site.Params.showSummaryCoverInPost }}
-            {{ $image := .Params.Cover }}
+
+          {{ $image := .Params.Cover }}
+        {{/*  {{ with .Resources.GetMatch .Params.Cover }}
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
+         {{ end }}  */}}
             {{ $webp := $image | relURL | replaceRE `(\.\w+)$` ".webp" | absURL }}
             <figure>
               <picture>
                 <source type="image/webp" srcset="{{ $webp }}">
-                <img class="cover" loading="lazy" src="{{ $image | absURL }}">
+                <img class="cover"
+                    {{ with .Params.cover_alt }} alt="{{ . }}" {{ end }}
+                    {{ with .Params.cover_height }} height="{{ . }}" {{ end }}
+                    {{ with .Params.cover_width }} width="{{ . }}" {{ end }}
+                    loading="lazy" src="{{ $image | absURL }}">
               </picture>
             </figure>
         {{ end }}

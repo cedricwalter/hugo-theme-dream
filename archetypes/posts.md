@@ -2,7 +2,8 @@
 title: {{ replace .TranslationBaseName "-" " " | title }}
 date: {{ .Date }}
 lastmod: {{ .Date }}
-cover: /img/cover.jpg
+cover: "/img/cover.jpg"
+cover_alt: ""
 summary: "a summary"
 categories:
   - category1

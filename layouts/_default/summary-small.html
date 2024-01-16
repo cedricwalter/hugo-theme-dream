@@ -8,7 +8,11 @@
       <figure>
         <picture>
           <source type="image/webp" srcset="{{ $webp }}">
-          <img class="cover" loading="lazy" src="{{ $image | absURL }}" alt="{{ .Title }}">
+          <img class="cover"
+              {{ with .Params.cover_alt }} alt="{{ . }}" {{ end }}
+              {{ with .Params.cover_height }} height="{{ . }}" {{ end }}
+              {{ with .Params.cover_width }} width="{{ . }}" {{ end }}
+              loading="lazy" src="{{ $image | absURL }}" alt="{{ .Title }}">
         </picture>
       </figure>
     {{ else }}
