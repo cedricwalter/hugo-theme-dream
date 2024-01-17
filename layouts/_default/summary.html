@@ -21,7 +21,7 @@
   <div class="content no-cover">
   {{ end }}
     <h2 class="ui medium header">
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <a href="{{ .RelPermalink }}">{{ .Title | emojify | safeHTML }}</a>
     </h2>
     <div class="meta">
       <p class="date">

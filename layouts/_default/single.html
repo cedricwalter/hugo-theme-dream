@@ -40,7 +40,7 @@
     <section class="ui segment">
       <header>
         <h1 class="ui large header">
-          {{- .Title -}}
+          {{- .Title | emojify | safeHTML -}}
           <span class="sub header">
             <span class="left">
               @
