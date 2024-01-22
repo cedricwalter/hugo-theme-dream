@@ -11,13 +11,11 @@
 <link href="https://cdn.jsdelivr.net" rel="preconnect" crossorigin>
 
 {{ if eq .Type "posts" }}
-<!-- Page Author & Description -->
-<meta name="author" content="{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}" />
-<meta name="description" content="{{ .Summary | plainify }}" />
+  <meta name="author" content="{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}" />
+  <meta name="description" content="{{ .Summary | plainify }}" />
 {{ else }}
-<!-- Site Author & Description -->
-<meta name="author" content="{{ .Site.Params.author }}" />
-<meta name="description" content="{{ .Site.Params.description }}" />
+  <meta name="author" content="{{ .Site.Params.author }}" />
+  <meta name="description" content="{{ .Site.Params.description }}" />
 {{ end }}
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -33,7 +31,13 @@
 <!-- Site Generator -->
 {{ hugo.Generator }}
 
-<link rel="canonical" href="{{ .Permalink }}" />
+<!-- Setting the canonical URL helps guard against confusion from duplication of the content elsewhere (even on the same site).
+  In essence, it tells search engines, “This location is what you should consider an authoritative, original source for its content.” -->
+{{- if isset .Params "canonical" -}}
+  <link rel="canonical" href="{{ .Params.canonical }}" />
+{{- else -}}
+  <link rel="canonical" href="{{ .Permalink }}" />
+{{- end }}
 
 <!-- Open Graph -->
 {{ template "_internal/opengraph.html" . }}
