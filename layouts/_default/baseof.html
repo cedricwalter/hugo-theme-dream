@@ -67,5 +67,13 @@
     {{ if .Site.GoogleAnalytics }}
     {{ template "_internal/google_analytics_async.html" . }}
     {{ end }}
+
+    {{ if (.Params.mermaid) }}
+      <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+      </script>
+    {{ end }}
+
   </body>
 </html>
