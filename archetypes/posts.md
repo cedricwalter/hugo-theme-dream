@@ -1,7 +1,6 @@
 ---
 title: {{ replace .TranslationBaseName "-" " " | title }}
 date: {{ .Date }}
-lastmod: {{ .Date }}
 
 cover: "/img/cover.jpg"
 cover_alt: ""
