@@ -29,7 +29,7 @@
     {{ end }}
   </div>
 
-  {{ if and .Site.DisqusShortname .IsHome }}
+  {{ if and .Site.Config.Services.Disqus.Shortname .IsHome }}
   <div class="sixteen wide mobile eight wide tablet eight wide computer column dream-column">
     <article class="ui segment">
       {{ partial "disqus.html" (dict "Context" . "Identifier" "/") }}

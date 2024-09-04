@@ -156,7 +156,7 @@
       </div>
     </section>
 
-    {{ if .Site.DisqusShortname }}
+    {{ if .Site.Config.Services.Disqus.Shortname }}
     <article class="ui segment post-disqus-area" data-html2canvas-ignore>
       {{ partial "disqus.html" (dict "Context" . "Identifier" .RelPermalink) }}
     </article>
